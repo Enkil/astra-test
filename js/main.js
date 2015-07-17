@@ -9337,21 +9337,31 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $(document).ready(function() {
-        $("body").css("display", "none");
-        $("body").fadeIn(1000);
-    });
-    
-    
     $('.flip').click(function(event){
         event.preventDefault();
         linkLocation = $(this).data("page") + ".html";
-        $("body").fadeOut(1000, redirectPage);
+        $.ajax({
+            url: linkLocation,
+            cache: false,
+            success: function(html){
+                $("html").html(html);
+            }
+        });
     });
     
-    function redirectPage() {
-        window.location = linkLocation;
-    }
+    
+    
+    
+    
+    //$('#btn1').click(function(){
+    //    $.ajax({
+    //        url: "page1.html",
+    //        cache: false,
+    //        success: function(html){
+    //            $("#content").html(html);
+    //        }
+    //    });
+    //});
     function getBgColorHex(elem){
         var color = elem.css('background-color')
         var hex;
