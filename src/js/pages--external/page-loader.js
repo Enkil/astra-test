@@ -1,31 +1,30 @@
-$('.flip').click(function(event) {
-    event.preventDefault();
+$('.flip').on('click', function(e){
+    e.preventDefault();
+    var href = $(this).data("page") + ".html";
 
-    linkLocation = $(this).data("page") + ".html";
+    getContent(href, true);
 
-    history.pushState(null, null, linkLocation);
-    //$(window).load(linkLocation);
-    $.ajax({
-        url: linkLocation + '?ajax=1',
-        success: function(html){
-            $("html").html(html);
-        }
-    });
-
-    window.onpopstate = function(event) {
-        if (event && event.state) {
-            location.reload();
-        }
-    };
-
-
-    return false;
 });
 
-function loadPage(elem) {
 
+
+window.addEventListener("popstate", function(e) {
+
+    // Get State value using e.state
+    getContent(location.pathname, false);
+});
+
+function getContent(url, addEntry) {
+    $.get(url)
+        .done(function( data ) {
+
+            // Updating Content on Page
+            $('html').html(data);
+
+            if(addEntry == true) {
+                // Add History Entry using pushState
+                history.pushState(null, null, url);
+            }
+
+        });
 }
-
-//window.addEventListener("popstate", function() {
-//    loadPage(location.pathname);
-//});
