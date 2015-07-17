@@ -1,6 +1,6 @@
 /* TEAM */
 	Developer: Igor Timohin
-	Site: igor-timohin.ru
+	Site: enkil.github.io/astra-test/
 	Contact: timohin.i [at] gmail.com
 	Twitter: @Igor_Timokhin
 	From: Saint-Petersburg, Russia
@@ -14,6 +14,6 @@
 	Language: Russian
 	Doctype:HTML5
 	Standards: HTML5, CSS3
-	Components: Modernizr, jQuery, Bootstrap, Bootstrap Material Design, etc.
+	Components: html5, css3
 	IDE: PhpShtorm, Gulp, Git, GitHub Pages
     Software: Software used for the development
