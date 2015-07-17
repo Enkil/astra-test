@@ -9365,23 +9365,24 @@ $(document).ready(function() {
         return hex;
     }
     
+    console.info(colorCookie);
+    
+    colorCookieCurrent = $.cookie('colorCookieCurrent');
+    if (colorCookieCurrent != 'undefined') {
+        $('.card__header, .footer').css('background-color', colorCookieCurrent); // set random color
+    }
+    
     $('.footer__logo').mouseenter(function() {
-        var colors = ['#1a48a6','#a71b3b','#a6781a','#1ba768']; // colors to set
-        console.info(colorCookie);
+        colors = ['#1a48a6','#a71b3b','#a6781a','#1ba768']; // colors to set
     
-        var colorCookieCurrent = $.cookie('colorCookieCurrent');
-        if (colorCookieCurrent != 'undefined') {
-            $('.card__header, .footer').css('background-color', colorCookieCurrent); // set random color
-        }
-    
-        var colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
-        var colorCookie = $.cookie('colorCurrent', colorCurrent); // write current color to cookie
+        colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
+        colorCookie = $.cookie('colorCurrent', colorCurrent); // write current color to cookie
         console.warn(colorCookie);
     
     
-        var colorsAmt = colors.length;
-        var randomColor = Math.floor(Math.random() * colorsAmt);
-        var colorRandom = colors[randomColor]; // get random color
+        colorsAmt = colors.length;
+        randomColor = Math.floor(Math.random() * colorsAmt);
+        colorRandom = colors[randomColor]; // get random color
     
         $('.card__header, .footer').css('background-color', colorRandom); // set random color
     
