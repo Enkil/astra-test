@@ -9341,13 +9341,13 @@ $(document).ready(function() {
         event.preventDefault();
         linkLocation = $(this).data("page") + ".html";
         history.pushState(null, null, linkLocation);
-        $(window).load(linkLocation);
-        //$.ajax({
-        //    url: linkLocation + '?ajax=1',
-        //    success: function(html){
-        //        $("html").html(html);
-        //    }
-        //});
+        //$(window).load(linkLocation);
+        $.ajax({
+            url: linkLocation + '?ajax=1',
+            success: function(html){
+                $("html").html(html);
+            }
+        });
     
         // handle the back and forward buttons
         $(window).bind('popstate', function(event) {
