@@ -9340,7 +9340,7 @@ $(document).ready(function() {
     $('.flip').click(function(event) {
         event.preventDefault();
     
-        linkLocation = $(this).data("page") + ".html";
+        var linkLocation = $(this).data("page") + ".html";
     
         history.pushState(null, null, linkLocation);
         $("html").load(linkLocation);
@@ -9363,6 +9363,7 @@ $(document).ready(function() {
     });
     
     window.onpopstate = function() {
+        var linkLocation = $(this).data("page") + ".html";
         $("html").load(linkLocation)
     };
     function getBgColorHex(elem){
