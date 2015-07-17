@@ -9375,7 +9375,7 @@ $(document).ready(function() {
     $('.footer__logo').mouseenter(function() {
         colors = ['#1a48a6','#a71b3b','#a6781a','#1ba768']; // colors to set
     
-        colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
+        //colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
     
         colorsAmt = colors.length;
         randomColor = Math.floor(Math.random() * colorsAmt);
@@ -9383,7 +9383,7 @@ $(document).ready(function() {
     
         $('.card__header, .footer').css('background-color', colorRandom); // set random color
     
-        $.cookie('colorCookie', colorCookie);
+        $.cookie('colorCookie', colorRandom);
     });
 
 });
