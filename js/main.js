@@ -9337,9 +9337,11 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip').click(function(event){
+    $('.flip').click(function(event) {
         event.preventDefault();
+    
         linkLocation = $(this).data("page") + ".html";
+    
         history.pushState(null, null, linkLocation);
         //$(window).load(linkLocation);
         $.ajax({
@@ -9349,18 +9351,13 @@ $(document).ready(function() {
             }
         });
     
-        // handle the back and forward buttons
-        $(window).bind('popstate', function(event) {
-            // if the event has our history data on it, load the page fragment with AJAX
-            var state = event.originalEvent.state;
-            if (state) {
-                $(window).load(state.path);
+        window.onpopstate = function(event) {
+            if (event && event.state) {
+                location.reload();
             }
-        });
+            ;
+        }
     
-    // when the page first loads update the history entry with the URL
-    // needed to recreate the 'first' page with AJAX
-        history.replaceState({ path: window.location.href }, '');
     
         return false;
     });
