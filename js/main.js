@@ -9337,34 +9337,64 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip').click(function(event) {
-        event.preventDefault();
+    //$('.flip').click(function(event) {
+    //    event.preventDefault();
+    //
+    //    linkLocation = $(this).data("page") + ".html";
+    //
+    //    history.pushState(null, null, linkLocation);
+    //    $("html").load(linkLocation);
+    //    //$.ajax({
+    //    //    url: linkLocation + '?ajax=1',
+    //    //    success: function(html){
+    //    //        $("html").html(html);
+    //    //    }
+    //    //});
+    //    //
+    //    //window.onpopstate = function(event) {
+    //    //    if (event && event.state) {
+    //    //        location.reload();
+    //    //    }
+    //    //};
+    //
+    //
+    //    return false;
+    //
+    //});
     
-        linkLocation = $(this).data("page") + ".html";
-    
-        history.pushState(null, null, linkLocation);
-        $("html").load(linkLocation);
-        //$.ajax({
-        //    url: linkLocation + '?ajax=1',
-        //    success: function(html){
-        //        $("html").html(html);
-        //    }
-        //});
-        //
-        //window.onpopstate = function(event) {
-        //    if (event && event.state) {
-        //        location.reload();
-        //    }
-        //};
     
     
-        return false;
+    
+    $('.flip').on('click', function(e){
+        e.preventDefault();
+        var href = $(this).data("page") + ".html";
+    
+        getContent(href, true);
     
     });
     
-    window.onpopstate = function() {
-        history.back();
-    };
+    
+    
+    window.addEventListener("popstate", function(e) {
+    
+        // Get State value using e.state
+        getContent(location.pathname, false);
+    });
+    
+    function getContent(url, addEntry) {
+        $.get(url)
+            .done(function( data ) {
+    
+                // Updating Content on Page
+                $('html').html(data);
+    
+                if(addEntry == true) {
+                    // Add History Entry using pushState
+                    history.pushState(null, null, url);
+                }
+    
+            });
+    }
     function getBgColorHex(elem){
         var color = elem.css('background-color')
         var hex;
