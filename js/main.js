@@ -9348,7 +9348,7 @@ $(document).ready(function() {
         });
     
         if(url != window.location){
-            window.history.pushState(null, null, url);
+            window.history.pushState(null, null, linkLocation);
         }
     
         return false;
