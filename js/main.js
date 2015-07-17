@@ -9337,18 +9337,30 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip').click(function(event){
+    $('.flip').live('click',function(event){
         event.preventDefault();
         linkLocation = $(this).data("page") + ".html";
-        $.ajax({
-            url: linkLocation + '?ajax=1',
-            success: function(html){
-                $("html").html(html);
+        history.pushState(null, null, linkLocation);
+        $(window).load(linkLocation);
+        //$.ajax({
+        //    url: linkLocation + '?ajax=1',
+        //    success: function(html){
+        //        $("html").html(html);
+        //    }
+        //});
+    
+        // handle the back and forward buttons
+        $(window).bind('popstate', function(event) {
+            // if the event has our history data on it, load the page fragment with AJAX
+            var state = event.originalEvent.state;
+            if (state) {
+                $(window).load(state.path);
             }
         });
     
-        history.pushState(null, null, linkLocation);
-        //window.location.hash = linkLocation;
+    // when the page first loads update the history entry with the URL
+    // needed to recreate the 'first' page with AJAX
+        history.replaceState({ path: window.location.href }, '');
     
         return false;
     });
