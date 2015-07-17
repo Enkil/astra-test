@@ -9348,6 +9348,7 @@ $(document).ready(function() {
         });
     
         window.history.pushState(null, null, linkLocation);
+        window.location.hash = linkLocation;
     
         return false;
     });
