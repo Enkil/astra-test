@@ -9347,9 +9347,7 @@ $(document).ready(function() {
             }
         });
     
-        if(url != window.location){
-            window.history.pushState(null, null, linkLocation);
-        }
+        window.history.pushState(null, null, linkLocation);
     
         return false;
     });
