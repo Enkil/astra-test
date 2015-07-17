@@ -9369,7 +9369,7 @@ $(document).ready(function() {
         var colors = ['#1a48a6','#a71b3b','#a6781a','#1ba768']; // colors to set
         console.info(colorCookie);
     
-        var colorCookieCurrent = $.cookie('colorCurrent');
+        var colorCookieCurrent = $.cookie('colorCookieCurrent');
         if (colorCookieCurrent != 'undefined') {
             $('.card__header, .footer').css('background-color', colorCookieCurrent); // set random color
         }
@@ -9386,6 +9386,7 @@ $(document).ready(function() {
         $('.card__header, .footer').css('background-color', colorRandom); // set random color
     
         $.cookie('colorRandom', colorRandom);
+        $.cookie('colorCookieCurrent', colorRandom);
     });
 
 });
