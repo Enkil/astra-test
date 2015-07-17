@@ -9376,9 +9376,6 @@ $(document).ready(function() {
         colors = ['#1a48a6','#a71b3b','#a6781a','#1ba768']; // colors to set
     
         colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
-        colorCookie = $.cookie('colorCurrent', colorCurrent); // write current color to cookie
-        console.warn(colorCookie);
-    
     
         colorsAmt = colors.length;
         randomColor = Math.floor(Math.random() * colorsAmt);
@@ -9386,8 +9383,7 @@ $(document).ready(function() {
     
         $('.card__header, .footer').css('background-color', colorRandom); // set random color
     
-        $.cookie('colorRandom', colorRandom);
-        $.cookie('colorCookieCurrent', colorRandom);
+        $.cookie('colorCookie', colorCookie);
     });
 
 });
