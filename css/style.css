@@ -84,13 +84,12 @@ The `.retina-sprites` mixin generates a CSS rule and media query for retina grou
 {
     font-family: 'Roboto Condensed', sans-serif;
 }
-div,
-article,
-footer,
-main
+*
 {
     font-family: 'Roboto Condensed', sans-serif;
-
+}
+*
+{
     box-sizing: border-box;
 }
 .container
@@ -328,4 +327,17 @@ main
 {
     -webkit-transform: rotateY(360deg);
             transform: rotateY(360deg);
+}
+.content
+{
+    float: left;
+
+    width: 1504px;
+    height: 1080px;
+    padding-top: 48px;
+    padding-left: 40px;
+}
+.content__text
+{
+    font-size: 28px;
 }
