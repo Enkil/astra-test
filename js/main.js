@@ -9341,27 +9341,18 @@ $(document).ready(function() {
         event.preventDefault();
         linkLocation = $(this).data("page") + ".html";
         $.ajax({
-            url: linkLocation,
-            cache: false,
+            url: linkLocation + '?ajax=1',
             success: function(html){
                 $("html").html(html);
             }
         });
+    
+        if(url != window.location){
+            window.history.pushState(null, null, url);
+        }
+    
+        return false;
     });
-    
-    
-    
-    
-    
-    //$('#btn1').click(function(){
-    //    $.ajax({
-    //        url: "page1.html",
-    //        cache: false,
-    //        success: function(html){
-    //            $("#content").html(html);
-    //        }
-    //    });
-    //});
     function getBgColorHex(elem){
         var color = elem.css('background-color')
         var hex;
