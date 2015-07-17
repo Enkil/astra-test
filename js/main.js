@@ -9376,11 +9376,8 @@ $(document).ready(function() {
     
         var colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
         var colorCookie = $.cookie('colorCurrent', colorCurrent); // write current color to cookie
-        console.info(colorCookie);
+        console.warn(colorCookie);
     
-        if (colorCurrent == '#024b9d') {
-    
-        }
     
         var colorsAmt = colors.length;
         var randomColor = Math.floor(Math.random() * colorsAmt);
