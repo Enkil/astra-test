@@ -9367,9 +9367,9 @@ $(document).ready(function() {
     
     console.info(colorCookie);
     
-    colorCookieCurrent = $.cookie('colorCookieCurrent');
-    if (colorCookieCurrent != 'undefined') {
-        $('.card__header, .footer').css('background-color', colorCookieCurrent); // set random color
+    colorCookie = $.cookie('colorCookie');
+    if (colorCookie != 'undefined') {
+        $('.card__header, .footer').css('background-color', colorCookie); // set random color
     }
     
     $('.footer__logo').mouseenter(function() {
