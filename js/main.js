@@ -9337,7 +9337,7 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip').live('click',function(event){
+    $('.flip').click(function(event){
         event.preventDefault();
         linkLocation = $(this).data("page") + ".html";
         history.pushState(null, null, linkLocation);
