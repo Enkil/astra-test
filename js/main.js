@@ -9337,7 +9337,32 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip').click(function(event) {
+    //$('.flip').click(function(event) {
+    //    event.preventDefault();
+    //
+    //    linkLocation = $(this).data("page") + ".html";
+    //
+    //    history.pushState(null, null, linkLocation);
+    //    //$(window).load(linkLocation);
+    //    $.ajax({
+    //        url: linkLocation + '?ajax=1',
+    //        success: function(html){
+    //            $("html").html(html);
+    //        }
+    //    });
+    //
+    //    window.onpopstate = function(event) {
+    //        if (event && event.state) {
+    //            location.reload();
+    //        }
+    //        ;
+    //    };
+    //
+    //
+    //    return false;
+    //});
+    
+    function loadPage(elem) {
         event.preventDefault();
     
         linkLocation = $(this).data("page") + ".html";
@@ -9355,11 +9380,16 @@ $(document).ready(function() {
             if (event && event.state) {
                 location.reload();
             }
-            ;
-        }
+        };
     
     
         return false;
+    }
+    
+    loadPage('.flip');
+    
+    window.addEventListener("popstate", function() {
+        loadPage(location.pathname);
     });
     function getBgColorHex(elem){
         var color = elem.css('background-color')
