@@ -9367,6 +9367,7 @@ $(document).ready(function() {
     
     $('.footer__logo').mouseenter(function() {
         var colors = ['#1a48a6','#a71b3b','#a6781a','#1ba768']; // colors to set
+        console.info(colorCookie);
     
         var colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
         var colorCookie = $.cookie('colorCurrent', colorCurrent); // write current color to cookie
