@@ -9368,15 +9368,11 @@ $(document).ready(function() {
     
     $('.footer__logo').mouseenter(function() {
         var colors = ['#1a48a6','#a71b3b','#a6781a','#1ba768']; // colors to set
-        var colorCookie = $.cookie('colorCurrent');
     
-        if ( colorCookie == 'undefined') {
-            colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
-            $.cookie('colorCurrent', colorCurrent); // write current color to cookie
-        } else {
-            colorCurrent = $.cookie('colorCurrent');
-            $('.card__header, .footer').css('background-color', colorCurrent);
-        }
+        var colorCurrent = getBgColorHex($('.card__header, .footer')); // current color
+        $.cookie('colorCurrent', colorCurrent); // write current color to cookie
+    
+    
     
         console.info(colorCurrent);
         var colorsAmt = colors.length;
