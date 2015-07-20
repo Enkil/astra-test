@@ -9337,34 +9337,6 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    //$('.flip').click(function(event) {
-    //    event.preventDefault();
-    //
-    //    linkLocation = $(this).data("page") + ".html";
-    //
-    //    history.pushState(null, null, linkLocation);
-    //    $("html").load(linkLocation);
-    //    //$.ajax({
-    //    //    url: linkLocation + '?ajax=1',
-    //    //    success: function(html){
-    //    //        $("html").html(html);
-    //    //    }
-    //    //});
-    //    //
-    //    //window.onpopstate = function(event) {
-    //    //    if (event && event.state) {
-    //    //        location.reload();
-    //    //    }
-    //    //};
-    //
-    //
-    //    return false;
-    //
-    //});
-    
-    
-    
-    
     $('.flip').on('click', function(e){
         e.preventDefault();
         var href = $(this).data("page") + ".html";
@@ -9426,9 +9398,24 @@ $(document).ready(function() {
         randomColor = Math.floor(Math.random() * colorsAmt);
         colorRandom = colors[randomColor]; // get random color
     
-        $('.card__header, .footer').css('background-color', colorRandom); // set random color
+        $('.card__header, .footer').css({
+            'background-color' : colorRandom,
+            transition : 'all .5s ease-in-out'
+        }); // set random color
     
         $.cookie('colorCookie', colorRandom);
     });
+    
+    
+    //$('a').on('click', function () {
+    //    var myTransition =  ($.browser.webkit)  ? '-webkit-transition' :
+    //                        ($.browser.mozilla) ? '-moz-transition' :
+    //                        ($.browser.msie)    ? '-ms-transition' :
+    //                        ($.browser.opera)   ? '-o-transition' : 'transition',
+    //        myCSSObj     = {'background-color', 'colorRandom'};
+    //
+    //    myCSSObj[myTransition] = 'opacity 1s ease-in-out';
+    //    $(this).next().css(myCSSObj);
+    //});​
 
 });
