@@ -228,7 +228,6 @@ body
 .card__list
 {
     position: absolute;
-    z-index: 50;
     top: 190px;
 
     margin: 0;
@@ -239,18 +238,12 @@ body
 }
 .card__list-item
 {
-    position: relative;
-    z-index: 50;
-
     padding: 0;
     padding-bottom: .8rem;
 }
 .card__list-link
 {
     font-size: 1.125rem;
-
-    position: relative;
-    z-index: 50;
 
     -webkit-transition: .5s;
             transition: .5s;
@@ -356,7 +349,6 @@ body
 .flip__back
 {
     position: absolute;
-    z-index: 50;
 
     -webkit-transition: 1s;
             transition: 1s;
