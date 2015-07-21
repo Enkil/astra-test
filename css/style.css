@@ -245,6 +245,9 @@ body
 {
     font-size: 1.125rem;
 
+    position: relative;
+    z-index: 50;
+
     -webkit-transition: .5s;
             transition: .5s;
     text-decoration: none;
