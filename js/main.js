@@ -9342,7 +9342,7 @@ $(document).ready(function() {
         var href;
         if ($(this).hasClass('flip')) {
             href = $(this).data("page") + ".html";
-        } else {
+        } else if ($(this).hasClass('card__list-link')) {
             href = $(this).attr('href');
         }
     
