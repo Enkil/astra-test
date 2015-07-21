@@ -9337,7 +9337,7 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip, .card__list-link').on('click', function(e){
+    $('.flip, .card__list-link').one('click', function(e){
         e.preventDefault();
         var href;
         if ($(this).hasClass('flip')) {
