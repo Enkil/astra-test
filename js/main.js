@@ -9343,7 +9343,7 @@ $(document).ready(function() {
         if ($(this).hasClass('flip')) {
             href = $(this).data("page") + ".html";
         } else {
-            href = $(this).data('href');
+            href = $(this).attr('href');
         }
     
     
