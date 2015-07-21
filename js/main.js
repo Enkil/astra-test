@@ -9337,20 +9337,27 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip, .card__list-link').on('click', function(e){
-        e.preventDefault();
-        var href;
-        if ($(this).hasClass('flip')) {
-            href = $(this).data("page") + ".html";
-        } else if ($(this).hasClass('card__list-link')) {
-            href = $(this).attr('href');
-        }
+    //$('.flip, .card__list-link').on('click', function(e){
+    //    e.preventDefault();
+    //    var href;
+    //    if ($(this).hasClass('flip')) {
+    //        href = $(this).data("page") + ".html";
+    //    } else if ($(this).hasClass('card__list-link')) {
+    //        href = $(this).attr('href');
+    //    }
+    //
+    //
+    //    getContent(href, true);
+    //
+    //});
     
+    $('.card__list-link').on('click', function(e){
+        e.preventDefault();
+        var href = $(this).attr('href');
     
         getContent(href, true);
     
     });
-    
     
     
     window.addEventListener("popstate", function(e) {
