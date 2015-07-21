@@ -340,6 +340,14 @@ body
     -webkit-transform: rotateY(-90deg);
             transform: rotateY(-90deg);
 }
+.flip:hover .flip__front
+{
+    -ms-transform: rotateY(0);
+}
+.flip:hover .flip__back
+{
+    -ms-transform: rotateY(90deg);
+}
 .flip__box
 {
     position: relative;
@@ -350,6 +358,7 @@ body
 
     -webkit-transition: all .5s ease-out;
             transition: all .5s ease-out;
+    -ms-transform: none;
     -webkit-transform-origin: 90px 90px -90px;
         -ms-transform-origin: 90px 90px -90px;
             transform-origin: 90px 90px -90px;
@@ -358,7 +367,7 @@ body
     -webkit-transform-style: preserve-3d;
        -moz-transform-style: preserve-3d;
          -o-transform-style: preserve-3d;
-        -ms-transform-style: preserve-3d;
+        -ms-transform-style: none;
 }
 .flip__front
 {
