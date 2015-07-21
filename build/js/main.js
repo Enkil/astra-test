@@ -9337,42 +9337,27 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    //$('.flip').click(function(event) {
-    //    event.preventDefault();
-    //
-    //    linkLocation = $(this).data("page") + ".html";
-    //
-    //    history.pushState(null, null, linkLocation);
-    //    $("html").load(linkLocation);
-    //    //$.ajax({
-    //    //    url: linkLocation + '?ajax=1',
-    //    //    success: function(html){
-    //    //        $("html").html(html);
-    //    //    }
-    //    //});
-    //    //
-    //    //window.onpopstate = function(event) {
-    //    //    if (event && event.state) {
-    //    //        location.reload();
-    //    //    }
-    //    //};
+    //$('.flip, .card__list-link').on('click', function(e){
+    //    e.preventDefault();
+    //    var href;
+    //    if ($(this).hasClass('flip')) {
+    //        href = $(this).data("page") + ".html";
+    //    } else if ($(this).hasClass('card__list-link')) {
+    //        href = $(this).attr('href');
+    //    }
     //
     //
-    //    return false;
+    //    getContent(href, true);
     //
     //});
     
-    
-    
-    
-    $('.flip').on('click', function(e){
+    $('.card__list-link').on('click', function(e){
         e.preventDefault();
-        var href = $(this).data("page") + ".html";
+        var href = $(this).attr('href');
     
         getContent(href, true);
     
     });
-    
     
     
     window.addEventListener("popstate", function(e) {
@@ -9426,7 +9411,10 @@ $(document).ready(function() {
         randomColor = Math.floor(Math.random() * colorsAmt);
         colorRandom = colors[randomColor]; // get random color
     
-        $('.card__header, .footer').css('background-color', colorRandom); // set random color
+        $('.card__header, .footer').css({
+            'background-color' : colorRandom,
+            transition : 'all .5s ease-in-out'
+        }); // set random color
     
         $.cookie('colorCookie', colorRandom);
     });

@@ -29,8 +29,10 @@ $('.footer__logo').mouseenter(function() {
     randomColor = Math.floor(Math.random() * colorsAmt);
     colorRandom = colors[randomColor]; // get random color
 
-    $('.card__header, .footer').css('background-color', colorRandom); // set random color
+    $('.card__header, .footer').css({
+        'background-color' : colorRandom,
+        transition : 'all .5s ease-in-out'
+    }); // set random color
 
     $.cookie('colorCookie', colorRandom);
 });
-

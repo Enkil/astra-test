@@ -17,17 +17,30 @@
   box-sizing: border-box;
 }
 
+html, body {
+  font-size: 100%;
+  @media (max-width: 1400px) {
+    font-size: 70%;
+  }
+  @media (max-width: 1100px) {
+    font-size: 65%;
+  }
+  @media (max-height: 850px) {
+    font-size: 65%;
+  }
+}
 
 // Styles
 
 .container{
-  width: 1920px;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 1080px;
+  width: 100vw;
+  height: 100vh;
+  min-height: 768px;
+  min-width: 1024px;
   margin: 0 auto;
   clear: both;
   position: relative;
+  overflow: hidden;
   &:before{
     content: '';
     display: table;
@@ -35,29 +48,30 @@
 }
 
 .card{
-  width: 376px;
-  height: 1080px;
+  width: 100%;
+  height: 100%;
   float: left;
-  padding-top: 221px;
   background-color: #ffffff;
-  cursor: pointer;
   &--flip-back{
     background-color: #5a5a5a;
+    top: 0;
   }
   &__header{
-    width: 345px;
+    width: 90%;
     height: 123px;
     background-color: #024b9d;
     margin: 0 auto;
     text-align: center;
-    display: table;
+    //display: table;
+    display: flex;
     padding: 0 15px;
     box-shadow: 0 50px 30px -30px rgba(0,0,0,.3);
-    z-index: 10;
+    z-index: 100;
 
-    position: absolute;
+    //position: absolute;
+    position: relative;
     top: 48px;
-    left: calc(~"50% - 172px");
+    //left: calc(~"50% - 172px");
 
     &--2{  opacity: .9; box-shadow: 0 50px 30px -30px rgba(0,0,0,.4);}
     &--3{  opacity: .8; box-shadow: 0 50px 30px -30px rgba(0,0,0,.5);}
@@ -65,32 +79,38 @@
     &--5{  opacity: .6; box-shadow: 0 50px 30px -30px rgba(0,0,0,.7);}
   }
   &__title{
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: bold;
     line-height: 34px;
     text-transform: uppercase;
     margin: 0;
+    align-self: center;
     color: #fff;
+    width: 100%;
+    text-align: center;
   }
   &__img{
-    height: 1080px;
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: 0;
+    //top: -123px;
+    object-fit: cover;
   }
   &__list{
     list-style-type: none;
-    padding-left: 40px;
+    padding-left: 3rem;
+    padding-right: 0.5rem;
     margin: 0;
+    position: absolute;
+    top: 210px;
   }
   &__list-item{
     padding: 0;
-    padding-bottom: 25px;
+    padding-bottom: 0.8rem;
   }
   &__list-link{
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 1.125rem;
     color: #fff;
     letter-spacing: .9px;
     text-decoration: none;
@@ -105,18 +125,20 @@
 }
 
 .footer-wrapper{
-  width: 1920px;
-  position: relative;
-  bottom: 228px;
+  //width: 100vw;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   margin: 0 auto;
   padding-top: 18px;
   overflow: hidden;
-  left: -20px;
+  clear: both;
+  z-index: 150;
+  //left: -20px;
 }
 
 .footer{
   opacity: .9;
-  width: 1920px;
   height: 210px;
   background-color: #024b9d;
   box-shadow: 0 0px 18px 0 #000;
@@ -152,41 +174,84 @@
 }
 
 .flip{
-  perspective: 800px;
+  perspective: 700;
   position: relative;
-  width: 376px;
-  height: 1080px;
+  width: 20%;
+  height: 100%;
   float: left;
+  min-height: 768px;
+
+  z-index: 50;
+
+  &:hover .flip__box{
+    transform: rotateY(-90deg);
+  }
+
+  &__box{
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transition: all .5s ease-out;
+    transform-origin: 90px 90px -90px;
+    top: -123px;
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
 
   &__front{
-    transform-style: preserve-3d;
     backface-visibility: hidden;
     position: absolute;
-    transition:0.8s;
+    transform-origin: 0 0;
+    transform:rotateY(0);
+
+    width: 100%;
+    height: 100%;
+
   }
   &__back{
-    transform-style: preserve-3d;
     backface-visibility: hidden;
     position: absolute;
-    transition: 1s;
-    transform:rotateY(180deg);
+    transform-origin: 0 0;
+    transform:rotateY(90deg);
+
+    width: 100%;
+    height: 100%;
+    left: 18rem;
   }
-  &:hover &__front{
-    transform:rotateY(180deg);
-  }
-  &:hover &__back{
-    transform:rotateY(360deg);
+  &--inner{
+    > .card{
+      cursor: auto;
+    }
+    .flip__front{
+      display: none;
+    }
+    .flip__back{
+      display: block;
+      transform: none;
+      left: 0;
+    }
+    &:hover .flip__front{
+      transform: none;
+      display: none;
+    }
+    &:hover .flip__back{
+      transform: none;
+    }
   }
 }
 
 .content{
+  box-sizing: border-box;
   float: left;
-  width: 1504px;
-  height: 1080px;
+  width: 77vw;
+  height: 100vh;
   padding-left: 40px;
   padding-top: 48px;
   &__text{
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 }
 
