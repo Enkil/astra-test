@@ -9340,7 +9340,7 @@ $(document).ready(function() {
     $('.flip, .card__list-link').on('click', function(e){
         e.preventDefault();
         var href;
-        if ($(this).attr('class') == 'flip') {
+        if ($(this).hasClass('flip')) {
             href = $(this).data("page") + ".html";
         } else {
             href = $(this).data('href');
