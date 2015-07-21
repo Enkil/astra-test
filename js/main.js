@@ -9337,9 +9337,15 @@ return jQuery;
 $(document).ready(function() {
 
     /* Custom */
-    $('.flip').on('click', function(e){
+    $('.flip, .card__list-link').on('click', function(e){
         e.preventDefault();
-        var href = $(this).data("page") + ".html";
+        var href;
+        if ($(this).attr('class') == 'flip') {
+            href = $(this).data("page") + ".html";
+        } else {
+            href = $(this).data('href');
+        }
+    
     
         getContent(href, true);
     
@@ -9405,17 +9411,5 @@ $(document).ready(function() {
     
         $.cookie('colorCookie', colorRandom);
     });
-    
-    
-    //$('a').on('click', function () {
-    //    var myTransition =  ($.browser.webkit)  ? '-webkit-transition' :
-    //                        ($.browser.mozilla) ? '-moz-transition' :
-    //                        ($.browser.msie)    ? '-ms-transition' :
-    //                        ($.browser.opera)   ? '-o-transition' : 'transition',
-    //        myCSSObj     = {'background-color', 'colorRandom'};
-    //
-    //    myCSSObj[myTransition] = 'opacity 1s ease-in-out';
-    //    $(this).next().css(myCSSObj);
-    //});​
 
 });
