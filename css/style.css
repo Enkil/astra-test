@@ -399,6 +399,8 @@ body
 }
 .flip--inner .flip__back
 {
+    left: 0;
+
     display: block;
 
     -webkit-transform: none;
