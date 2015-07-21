@@ -126,6 +126,7 @@ body
     position: relative;
 
     clear: both;
+    overflow: hidden;
 
     width: 100vw;
     min-width: 1024px;
